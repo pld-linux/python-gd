@@ -1,71 +1,65 @@
-%define pp_subname gd
-Summary:	Python interface to gd library
-Summary(pl):	Interfejs do biblioteki gd dla Pythona
-Name:		python-%{pp_subname}
-Version:	1.3
-# NOTE: module version is 0.22, not 1.3
-Release:	2
-License:	distributable
+%define		module	gd
+Summary:	Python interface to GD library
+Summary(pl):	Interfejs do biblioteki GD dla Pythona
+Name:		python-%{module}
+Version:	0.52
+Release:	1
+Epoch:		1
+License:	BSD-like
 Group:		Development/Languages/Python
-Source0:	gdmodule.c
-Source1:	gd-ref.html
-Source2:	python-Makefile.pre.in
-Source3:	python-gd-Setup.in
-#Source0:	http://newcenturycomputers.net/cgi-bin/download.py/projects/downloads/gdmodule-0.25.tar.gz
-#Icon:		linux-python-paint-icon.gif
+Source0:	http://newcenturycomputers.net/projects/download.cgi/gdmodule-%{version}.tar.gz
+# Source0-md5:	7322e7cc82c21765989053fd9a55e1ac
 URL:		http://newcenturycomputers.net/projects/gdmodule.html
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRequires:	gd-devel >= 1.8.3
+BuildRequires:	python-devel >= 1.5
+BuildRequires:	python-modules >= 1.5
 Requires:	python >= 1.5
-#BuildRequires:	python-devel >= 1.5, sed
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Python interface to the gd library 1.3
+GD module is an interface to the GD library written by Thomas
+Bouttel.
 
-GD module is an interface to the GD library written by Thomas Bouttel.
-
-'It allows your code to quickly draw images complete with lines, arcs,
-text, multiple colors, cut and paste from other images, and flood
-fills, and write out the result as a .GIF file. This is particularly
-useful in World Wide Web applications, where .GIF is the format used
-for inline images.'
+It allows your code to quickly draw images complete with lines,
+arcs, text, multiple colors, cut and paste from other images,
+and flood fills, and write out the result as a PNG or JPEG file.
+This is particularly useful in World Wide Web applications,
+where PNG and JPEG are two of the formats accepted for inline
+images by most browsers.
 
 It has been extended in some ways from the original GD library.
 
 %description -l pl
-Modu³ GD jest interfejsem do biblioteki GD autorstwa Thomasa Bouttela.
+Modu³ GD jest interfejsem do biblioteki GD autorstwa Thomasa
+Bouttela.
 
-Modu³, czy biblioteka gd wogóle pozwala na szybkie rysowanie orazow
-sk³adaj±cych siê z lini, ³uków, tekstu, fragmentów innych obrazków,
-czy wype³nieñ. Ca³o¶c oczywiscie mo¿ê byæ wielokolorowa, a
-wyprodukowany obrazek jest zapisywany do pliku .GIF. Jest to
-szczególnie przydatne dla zastosowañ zwi±zanych z WWW, gdzie .GIF jest
-standardowym formatem u¿ywanym do zapisywania obrazków sk³adaj±cych
-siê na stronê WWW.
+Modu³ pozwala na szybkie rysowanie obrazów sk³adaj±cych siê z
+linii, ³uków, tekstu, ró¿nych kolorów, fragmentów innych obrazków,
+czy wype³nieñ. Wyprodukowany obrazek jest zapisywany do pliku PNG
+lub JPEG. Jest to szczególnie przydatne w aplikacjach WWW, gdzie
+PNG i JPEG s± dwoma formatami obrazów sk³adowych akceptowanymi
+przez wiêkszo¶æ przegl±darek.
 
 Modu³ zosta³ równie¿ rozszerzony w kilku miejscach w stosunku do
-oryginalnej biblioteki gd.
+oryginalnej biblioteki GD.
 
 %prep
-%setup -q -c -T
-cp -f %{SOURCE0} .
-cp -f %{SOURCE1} .
-cp -f %{SOURCE2} Makefile.pre.in
-cp -f %{SOURCE3} Setup.in
+%setup -q -n gdmodule-%{version}
 
 %build
-%{__make} -f Makefile.pre.in boot
-%{__make} OPT="%{rpmcflags}"
+CFLAGS="%{rpmcflags}" %__python Setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
-
-install gdmodule.so $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
+%__python Setup.py install \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc gd-ref.html
-%{_libdir}/python1.5/site-packages/gdmodule.so
+%doc README gd-ref.html
+%py_sitedir/gd.py[c,o]
+%py_sitedir/_gd.so
