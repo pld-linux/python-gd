@@ -3,12 +3,13 @@ Summary:	Python interface to GD library
 Summary(pl):	Interfejs do biblioteki GD dla Pythona
 Name:		python-%{module}
 Version:	0.53
-Release:	2
+Release:	3
 Epoch:		1
 License:	BSD-like
 Group:		Development/Languages/Python
 Source0:	http://newcenturycomputers.net/projects/download.cgi/gdmodule-%{version}.tar.gz
 # Source0-md5:	4a6c69697e1ff9825b23624cdab8dbdc
+Patch0:		%{name}-lib64.patch
 URL:		http://newcenturycomputers.net/projects/gdmodule.html
 BuildRequires:	gd-devel >= 2.0.8
 BuildRequires:	python-devel >= 1.5
@@ -45,6 +46,9 @@ oryginalnej biblioteki GD.
 
 %prep
 %setup -q -n gdmodule-%{version}
+%if "%{_lib}" == "lib64"
+%patch0 -p1
+%endif
 
 %build
 CFLAGS="%{rpmcflags}" \
