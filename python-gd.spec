@@ -6,8 +6,9 @@ Version:	1.3
 Release:	2
 Copyright:	distributable
 Group:		Development/Languages/Python
+Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
-Source0:	gdmodule.c 
+Source0:	gdmodule.c
 Source1:	gd-ref.html
 Source2:	python-Makefile.pre.in
 Source3:	python-gd-Setup.in
@@ -45,14 +46,14 @@ orginalnej biblioteki gd.
 
 %prep
 %setup -q -c -T
-cp $RPM_SOURCE_DIR/gdmodule.c .
-cp $RPM_SOURCE_DIR/gd-ref.html .
-cp $RPM_SOURCE_DIR/python-Makefile.pre.in Makefile.pre.in
-cp $RPM_SOURCE_DIR/python-gd-Setup.in Setup.in
+cp -f %{SOURCE0} .
+cp -f %{SOURCE1} .
+cp -f %{SOURCE2} Makefile.pre.in
+cp -f %{SOURCE3} Setup.in
 
 %build
 %{__make} -f Makefile.pre.in boot
-%{__make} "OPT=$RPM_OPT_FLAGS"
+%{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
