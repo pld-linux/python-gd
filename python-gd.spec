@@ -1,5 +1,5 @@
 %define pp_subname gd
-Summary:	Python interface to gd library.
+Summary:	Python interface to gd library
 Summary(pl):	Interfejs do biblioteki gd dla Pythona
 Name:		python-%{pp_subname}
 Version:	1.3
