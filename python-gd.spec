@@ -62,12 +62,10 @@ install -d $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
 
 install gdmodule.so $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
 
-gzip -9nf gd-ref.html
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc gd-ref.html.gz
+%doc gd-ref.html
 %{_libdir}/python1.5/site-packages/gdmodule.so
