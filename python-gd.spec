@@ -7,6 +7,7 @@ Release:	1
 Epoch:		1
 License:	BSD-like
 Group:		Development/Languages/Python
+# Source0Download: http://newcenturycomputers.net/projects/gdmodule.html
 Source0:	http://newcenturycomputers.net/projects/download.cgi/gdmodule-%{version}.tar.gz
 # Source0-md5:	6a6db28a089d4caf5a921cd266a62b3d
 Patch0:		%{name}-lib64.patch
