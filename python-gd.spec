@@ -1,6 +1,7 @@
+%define pp_subname gd
 Summary:       Python interface to gd library.
 Summary(pl):   Interfejs do biblioteki gd dla Pythona.
-Name:          python-gd
+Name:          python-%{pp_subname}
 Version:       1.3 
 Release:       2
 Copyright:     distributable
@@ -54,7 +55,7 @@ make -f Makefile.pre.in boot
 make "OPT=$RPM_OPT_FLAGS"
 
 %install
-mkdir -p $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
+install -d -m 755 $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
 install -m 755 gdmodule.so $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
 gzip -9nf gd-ref.html
 
