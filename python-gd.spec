@@ -61,5 +61,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README gd-ref.html
-%py_sitedir/gd.py[c,o]
-%py_sitedir/_gd.so
+%{py_sitedir}/gd.py[c,o]
+%attr(755,root,root) %{py_sitedir}/_gd.so
