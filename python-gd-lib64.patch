@@ -1,0 +1,13 @@
+--- gdmodule-0.53/Setup.py	2004-12-25 13:48:00.308880456 +0000
++++ gdmodule-0.53/Setup.py.orig	2004-12-25 13:47:36.031571168 +0000
+@@ -40,8 +40,8 @@
+ # Unixoid OS's I will just look for the usual suspects.
+ 
+ libdirs = dirtest([
+-    "/usr/local/lib64", "/sw/lib", "/usr/lib64",
+-    "/usr/lib/X11", "/usr/X11R6/lib64",
++    "/usr/local/lib", "/sw/lib", "/usr/lib",
++    "/usr/lib/X11", "/usr/X11R6/lib",
+     "/opt/gnome/lib",
+ ])
+ 
