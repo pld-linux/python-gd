@@ -7,8 +7,6 @@ Version:	1.3
 Release:	2
 License:	distributable
 Group:		Development/Languages/Python
-Group(de):	Entwicklung/Sprachen/Python
-Group(pl):	Programowanie/Jêzyki/Python
 Source0:	gdmodule.c
 Source1:	gd-ref.html
 Source2:	python-Makefile.pre.in
