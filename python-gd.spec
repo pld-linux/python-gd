@@ -13,7 +13,7 @@ URL:		http://newcenturycomputers.net/projects/gdmodule.html
 BuildRequires:	gd-devel >= 1.8.3
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	python-modules >= 1.5
-Requires:	python >= 1.5
+%pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -47,11 +47,13 @@ oryginalnej biblioteki GD.
 %setup -q -n gdmodule-%{version}
 
 %build
-CFLAGS="%{rpmcflags}" %__python Setup.py build
+CFLAGS="%{rpmcflags}" \
+python Setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%__python Setup.py install \
+
+python Setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
@@ -61,5 +63,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README gd-ref.html
-%{py_sitedir}/gd.py[c,o]
+%{py_sitedir}/gd.py[co]
 %attr(755,root,root) %{py_sitedir}/_gd.so
