@@ -12,7 +12,7 @@ Source1:       gd-ref.html
 Source2:       python-Makefile.pre.in
 Source3:       python-gd-Setup.in
 #Icon:          linux-python-paint-icon.gif 
-BuildRoot:	   /tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:      python >= 1.5
 #BuildRequires: python-devel >= 1.5, sed
 
