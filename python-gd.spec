@@ -51,8 +51,8 @@ cp $RPM_SOURCE_DIR/python-Makefile.pre.in Makefile.pre.in
 cp $RPM_SOURCE_DIR/python-gd-Setup.in Setup.in
 
 %build
-make -f Makefile.pre.in boot
-make "OPT=$RPM_OPT_FLAGS"
+%{__make} -f Makefile.pre.in boot
+%{__make} "OPT=$RPM_OPT_FLAGS"
 
 %install
 install -d -m 755 $RPM_BUILD_ROOT%{_libdir}/python1.5/site-packages/
