@@ -3,7 +3,7 @@ Summary:	Python interface to GD library
 Summary(pl):	Interfejs do biblioteki GD dla Pythona
 Name:		python-%{module}
 Version:	0.53
-Release:	1
+Release:	2
 Epoch:		1
 License:	BSD-like
 Group:		Development/Languages/Python
