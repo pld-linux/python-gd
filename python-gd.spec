@@ -2,9 +2,10 @@
 Summary:	Python interface to gd library.
 Summary(pl):	Interfejs do biblioteki gd dla Pythona
 Name:		python-%{pp_subname}
-Version:	1.3 
+Version:	1.3
+# NOTE: module version is 0.22, not 1.3
 Release:	2
-Copyright:	distributable
+License:	distributable
 Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
@@ -12,7 +13,9 @@ Source0:	gdmodule.c
 Source1:	gd-ref.html
 Source2:	python-Makefile.pre.in
 Source3:	python-gd-Setup.in
-#Icon:		linux-python-paint-icon.gif 
+#Source0:	http://newcenturycomputers.net/cgi-bin/download.py/projects/downloads/gdmodule-0.25.tar.gz
+#Icon:		linux-python-paint-icon.gif
+URL:		http://newcenturycomputers.net/projects/gdmodule.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Requires:	python >= 1.5
 #BuildRequires:	python-devel >= 1.5, sed
@@ -42,7 +45,7 @@ standardowym formatem u¿ywanym do zapisywania obrazków sk³adaj±cych
 siê na stronê WWW.
 
 Modu³ zosta³ równie¿ rozszerzony w kilku miejscach w stosunku do
-orginalnej biblioteki gd.
+oryginalnej biblioteki gd.
 
 %prep
 %setup -q -c -T
