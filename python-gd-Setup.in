@@ -1,3 +1,0 @@
-*noconfig*
-
-gd  gdmodule.c -Igd1.2/ -Lgd1.2/ -lgd
