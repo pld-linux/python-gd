@@ -1,6 +1,6 @@
 %define		module gd
 Summary:	Python interface to GD library
-Summary(pl):	Interfejs do biblioteki GD dla Pythona
+Summary(pl.UTF-8):   Interfejs do biblioteki GD dla Pythona
 Name:		python-%{module}
 Version:	0.56
 Release:	1
@@ -31,18 +31,18 @@ images by most browsers.
 
 It has been extended in some ways from the original GD library.
 
-%description -l pl
-Modu³ GD jest interfejsem do biblioteki GD autorstwa Thomasa
+%description -l pl.UTF-8
+ModuÅ‚ GD jest interfejsem do biblioteki GD autorstwa Thomasa
 Bouttela.
 
-Modu³ pozwala na szybkie rysowanie obrazów sk³adaj±cych siê z
-linii, ³uków, tekstu, ró¿nych kolorów, fragmentów innych obrazków,
-czy wype³nieñ. Wyprodukowany obrazek jest zapisywany do pliku PNG
-lub JPEG. Jest to szczególnie przydatne w aplikacjach WWW, gdzie
-PNG i JPEG s± dwoma formatami obrazów sk³adowych akceptowanymi
-przez wiêkszo¶æ przegl±darek.
+ModuÅ‚ pozwala na szybkie rysowanie obrazÃ³w skÅ‚adajÄ…cych siÄ™ z
+linii, Å‚ukÃ³w, tekstu, rÃ³Å¼nych kolorÃ³w, fragmentÃ³w innych obrazkÃ³w,
+czy wypeÅ‚nieÅ„. Wyprodukowany obrazek jest zapisywany do pliku PNG
+lub JPEG. Jest to szczegÃ³lnie przydatne w aplikacjach WWW, gdzie
+PNG i JPEG sÄ… dwoma formatami obrazÃ³w skÅ‚adowych akceptowanymi
+przez wiÄ™kszoÅ›Ä‡ przeglÄ…darek.
 
-Modu³ zosta³ równie¿ rozszerzony w kilku miejscach w stosunku do
+ModuÅ‚ zostaÅ‚ rÃ³wnieÅ¼ rozszerzony w kilku miejscach w stosunku do
 oryginalnej biblioteki GD.
 
 %prep
