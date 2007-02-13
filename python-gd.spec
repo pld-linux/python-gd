@@ -1,6 +1,6 @@
 %define		module gd
 Summary:	Python interface to GD library
-Summary(pl.UTF-8):   Interfejs do biblioteki GD dla Pythona
+Summary(pl.UTF-8):	Interfejs do biblioteki GD dla Pythona
 Name:		python-%{module}
 Version:	0.56
 Release:	1
