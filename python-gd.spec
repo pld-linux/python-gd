@@ -15,6 +15,7 @@ URL:		http://newcenturycomputers.net/projects/gdmodule.html
 BuildRequires:	gd-devel >= 2.0.23
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	python-modules >= 1.5
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
