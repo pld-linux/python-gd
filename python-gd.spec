@@ -3,7 +3,7 @@ Summary:	Python interface to GD library
 Summary(pl.UTF-8):	Interfejs do biblioteki GD dla Pythona
 Name:		python-%{module}
 Version:	0.56
-Release:	8
+Release:	9
 Epoch:		1
 License:	BSD-like
 Group:		Development/Languages/Python
@@ -52,16 +52,16 @@ oryginalnej biblioteki GD.
 %patch0 -p1
 %endif
 
+%{__mv} Setup.py setup.py
+
 %build
-CFLAGS="%{rpmcflags}" \
-python Setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python Setup.py install \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,3 +71,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README gd-ref.html
 %{py_sitedir}/gd.py[co]
 %attr(755,root,root) %{py_sitedir}/_gd.so
+%{py_sitedir}/gdmodule-%{version}-py*.egg-info
