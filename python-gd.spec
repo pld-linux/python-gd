@@ -50,10 +50,10 @@ oryginalnej biblioteki GD.
 %prep
 %setup -q -n gdmodule-%{version}
 %if "%{_lib}" == "lib64"
-%patch0 -p1
+%patch -P0 -p1
 %endif
 %if "%{_lib}" == "libx32"
-%patch1 -p1
+%patch -P1 -p1
 %endif
 
 %{__mv} Setup.py setup.py
